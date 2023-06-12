@@ -50,4 +50,20 @@ public class ToyController {
         }
         System.out.println("Игрушка с таким Id не найдена");
     }
+
+    public String giveAwayToy() {
+        int sumOfWeights = 0;
+        int rand = (int)(Math.random()*100);
+        int prevChanceBorder = 0;
+        for(var toy: toysList)
+            sumOfWeights += toy.getWeight();
+        for(int i = 0; i < toysList.size(); i++) {
+            int chance = (int)((toysList.get(i).getWeight()/sumOfWeights)*100);
+            if(rand > prevChanceBorder && rand <= prevChanceBorder + chance) {
+                return toysList.get(i).getName();
+            }
+            prevChanceBorder += chance;
+        }
+        return null;
+    }
 }

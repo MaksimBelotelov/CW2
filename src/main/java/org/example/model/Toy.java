@@ -11,6 +11,10 @@ public class Toy {
         this.weight = weight;
     }
 
+    public Toy(String name) {
+        this(0, name, 0);
+    }
+
     public int getId() {
         return id;
     }

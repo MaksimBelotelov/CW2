@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.controller.QueueController;
 import org.example.controller.ToyController;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class Menu {
     private ArrayList<MenuItem> menuItems = new ArrayList<>();
     private Scanner userInput = new Scanner(System.in);
 
-    public Menu(String title, ToyController toyController) {
+    public Menu(String title, ToyController toyController, QueueController queueController) {
         this.menuTitle = title;
 
         this.menuItems.add(new MenuItem("Добавить новую игрушку") {
@@ -27,6 +28,14 @@ public class Menu {
             }
         });
 
+        this.menuItems.add(new MenuItem("Провести розыгрыш(добавить случайную игрушку в очередь)") {
+            @Override
+            public void processItem() {
+                String prize = toyController.giveAwayToy()
+                queueController.putToyToQueue(prize);
+            }
+        });
+
         this.menuItems.add(new MenuItem("Выход") {
             @Override
             public void processItem() {
@@ -34,8 +43,6 @@ public class Menu {
                 System.exit(0);
             }
         });
-
-
     }
 
     public void startMenu() {
