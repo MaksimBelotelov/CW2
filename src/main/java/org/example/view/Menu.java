@@ -1,7 +1,8 @@
 package org.example.view;
 
+import org.example.controller.ToyController;
+
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -9,7 +10,7 @@ public class Menu {
     private ArrayList<MenuItem> menuItems = new ArrayList<>();
     private Scanner userInput = new Scanner(System.in);
 
-    public Menu(String title) {
+    public Menu(String title, ToyController toyController) {
         this.menuTitle = title;
 
         this.menuItems.add(new MenuItem("Выход") {
