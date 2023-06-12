@@ -31,8 +31,9 @@ public class Menu {
         this.menuItems.add(new MenuItem("Провести розыгрыш(добавить случайную игрушку в очередь)") {
             @Override
             public void processItem() {
-                String prize = toyController.giveAwayToy()
+                String prize = toyController.giveAwayToy();
                 queueController.putToyToQueue(prize);
+                ToysView.addedToQueueMessage(prize);
             }
         });
 

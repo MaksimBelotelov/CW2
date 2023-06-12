@@ -5,6 +5,7 @@ import org.example.model.Toy;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.PriorityQueue;
 
 public class QueueRepo {
@@ -28,5 +29,17 @@ public class QueueRepo {
             ex.printStackTrace();
         }
         return queueOfPrizes;
+    }
+
+    public void saveQueueToRepo(PriorityQueue<String> queueOfPrizes) {
+        try (FileWriter writer = new FileWriter(QUEUEPATH,false)){
+            for(String toyName: queueOfPrizes) {
+                writer.write(toyName + "\n");
+            }
+            writer.flush();
+            writer.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
