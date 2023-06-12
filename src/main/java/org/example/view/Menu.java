@@ -13,6 +13,13 @@ public class Menu {
     public Menu(String title, ToyController toyController) {
         this.menuTitle = title;
 
+        this.menuItems.add(new MenuItem("Добавить новую игрушку") {
+            @Override
+            public void processItem() {
+                toyController.addNewToy();
+            }
+        });
+
         this.menuItems.add(new MenuItem("Выход") {
             @Override
             public void processItem() {
@@ -20,6 +27,8 @@ public class Menu {
                 System.exit(0);
             }
         });
+
+
     }
 
     public void startMenu() {
