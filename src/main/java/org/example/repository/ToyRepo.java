@@ -5,6 +5,7 @@ import org.example.model.Toy;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class ToyRepo {
@@ -30,5 +31,16 @@ public class ToyRepo {
             ex.printStackTrace();
         }
         return toys;
+    }
+
+    public void saveToysToRepo(ArrayList<Toy> toys) {
+        try(FileWriter writer = new FileWriter(TOYSPATH, false)) {
+            for(Toy toy: toys)
+                writer.append(toy.toFile());
+            writer.flush();
+            writer.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

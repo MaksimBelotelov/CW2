@@ -39,6 +39,7 @@ public class Toy {
         this.weight = weight;
     }
 
+    public String toFile() { return id + "\n" + name + "\n" + weight + "\n"; }
     @Override
     public String toString() {
         return String.format("%-4d%-20s%.2f", id, name, weight);

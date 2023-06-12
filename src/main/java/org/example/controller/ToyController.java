@@ -34,6 +34,7 @@ public class ToyController {
             return;
         }
         toysList.add(new Toy(id, name, weight));
+        toyRepo.saveToysToRepo(toysList);
     }
 
     public void editWeightOfToy() {
@@ -45,6 +46,7 @@ public class ToyController {
             if(toy.getId() == idToChange) {
                 toy.setWeight(newWeight);
                 System.out.println("Вес для игрушки " + toy.getName() + " изменен на " + toy.getWeight());
+                toyRepo.saveToysToRepo(toysList);
                 return;
             }
         }
