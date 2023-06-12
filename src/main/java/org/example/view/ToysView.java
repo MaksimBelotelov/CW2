@@ -18,4 +18,9 @@ public class ToysView {
         System.out.println("В очередь для выдачи добавлена игрушка: " + name);
         System.out.println("-----------------------------");
     }
+
+    public static void addedToListOfToys(String name) {
+        System.out.println("Игрушка " + name + "добавлена в список для розыгрыша");
+        System.out.println("-----------------------------");
+    }
 }

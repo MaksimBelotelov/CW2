@@ -35,6 +35,7 @@ public class ToyController {
         }
         toysList.add(new Toy(id, name, weight));
         toyRepo.saveToysToRepo(toysList);
+        ToysView.addedToListOfToys(name);
     }
 
     public void editWeightOfToy() {

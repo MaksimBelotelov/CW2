@@ -37,6 +37,15 @@ public class Menu {
             }
         });
 
+        this.menuItems.add(new MenuItem("Выдать приз из очереди") {
+            @Override
+            public void processItem() {
+                String prize = queueController.popToyFromQueue();
+                if (prize != null) System.out.println("Выдан приз: " + prize);
+                else System.out.println("В очереди нет игрушек. Сначала проведите хотя бы один розыгрыш");
+            }
+        });
+
         this.menuItems.add(new MenuItem("Выход") {
             @Override
             public void processItem() {
