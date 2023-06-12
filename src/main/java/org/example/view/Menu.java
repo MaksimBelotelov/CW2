@@ -20,6 +20,13 @@ public class Menu {
             }
         });
 
+        this.menuItems.add(new MenuItem("Изменить вес игрушки") {
+            @Override
+            public void processItem() {
+                toyController.editWeightOfToy();
+            }
+        });
+
         this.menuItems.add(new MenuItem("Выход") {
             @Override
             public void processItem() {
@@ -35,6 +42,7 @@ public class Menu {
         int choice = 0;
         System.out.println(menuTitle);
         while(true) {
+            System.out.println("-----------------------------");
             for(int i = 0; i < menuItems.size(); i++)
                 System.out.println(i + ". " + menuItems.get(i).getItemName());
             if (userInput.hasNextInt()){

@@ -37,9 +37,7 @@ public class Toy {
 
     @Override
     public String toString() {
-        return id + "\n" +
-                name + "\n" +
-                weight + "\n";
+        return String.format("%-4d%-20s%.2f", id, name, weight);
     }
 }
 
